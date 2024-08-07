@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Aplikasi Vue #8: Direktif untuk Event</title>
+        <!-- Menyisipkan Vuejs dari CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      </head>
+<body>
+    <!-- element kontainer aplikasi -->
+    <div id="app">
+        <input type="text" v-model:value="name">
+        <button @click="btnClick" @mouseover="hover = true" @mouseout="hover = false">Klik Saya</button>
+        <p v-if="hover">Kamu sedang menyentuh tombol</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                name: "Rizal",
+                hover: false
+            },
+            methods: {
+                btnClick: function(){
+                    alert(`Hi ${this.name}, Kamu sudah mengklik tombolnya`);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
